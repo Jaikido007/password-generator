@@ -108,9 +108,6 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {}
 
-// Function for getting a random element from an array
-function getRandom(arr) {}
-
 // Generate random lowercase letter from character set
 function getRandomLowerLetter() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -124,12 +121,10 @@ function getRandomNumber() {
 	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 // Generate random special character from character set
-function getRandomLowerLetter() {
-	return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+function getRandomSpecialChar() {
+	const specialChars = "@%+/'!#$^?:,.()[]{}~_-";
+	return specialChars[Math.floor(Math.random() * specialChars.length)];
 }
-
-// Getting a random whole number starting from character set 97 (a) and randomising which number to return by the number of letters in the alphabet.
-console.log(Math.floor(Math.random() * 26) + 97);
 
 // Function to generate password with user input
 function generatePassword() {}
