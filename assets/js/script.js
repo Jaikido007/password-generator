@@ -113,7 +113,7 @@ function getRandom(arr) {}
 
 // Generate random lowercase letter from character set
 
-function getRandomLowerLeter() {
+function getRandomLowerLetter() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 // Getting a random whole number starting from character set 97 (a) and randomising which number to return by the number of letters in the alphabet.
