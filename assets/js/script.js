@@ -1,3 +1,7 @@
+// ! Letters, Numbers & Special Characters set
+
+// http://www.net-comber.com/charset.html
+
 // ! A string of password characters
 
 // A string of lowercase characters to be included in password
@@ -106,6 +110,14 @@ function getPasswordOptions() {}
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
+
+// Generate random lowercase letter from character set
+
+function getRandomLowerLeter() {
+	return String.fromCharCode(97);
+}
+// Getting a random whole number starting from character set 97 (a) and randomising which number to return by the number of letters in the alphabet.
+console.log(Math.floor(Math.random() * 26) + 97);
 
 // Function to generate password with user input
 function generatePassword() {}
