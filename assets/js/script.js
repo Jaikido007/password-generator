@@ -2,6 +2,16 @@
 
 // http://www.net-comber.com/charset.html
 
+// DOM Elements
+const resultElement = document.getElementById('result');
+const lengthElement = document.getElementById('length');
+const lowercaseElement = document.getElementById('lowercase');
+const upperElement = document.getElementById('upper');
+const numbersElement = document.getElementById('numbers');
+const specialCharElement = document.getElementById('specialChar');
+const generateElement = document.getElementById('generate');
+const clipboardElement = document.getElementById('clipboard');
+
 // Temporary random functions constant
 
 const randomFunctions = {
