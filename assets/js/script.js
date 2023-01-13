@@ -3,33 +3,49 @@
 // http://www.net-comber.com/charset.html
 
 // DOM Elements
-const resultElement = document.getElementById('result');
-const lengthElement = document.getElementById('length');
-const lowercaseElement = document.getElementById('lowercase');
-const upperElement = document.getElementById('upper');
-const numbersElement = document.getElementById('numbers');
-const specialCharElement = document.getElementById('specialChar');
-const generateElement = document.getElementById('generate');
-const clipboardElement = document.getElementById('clipboard');
+const resultElement = document.getElementById("result");
+const lengthElement = document.getElementById("length");
+const lowercaseElement = document.getElementById("lowercase");
+const uppercaseElement = document.getElementById("uppercase");
+const numbersElement = document.getElementById("numbers");
+const specialCharElement = document.getElementById("symbols");
+const generateElement = document.getElementById("generate");
+const clipboardElement = document.getElementById("clipboard");
 
-// Temporary random functions constant
+// Randomly generated character functions
 
 const randomFunctions = {
 	lower: getRandomLowerLetter,
 	upper: getRandomUpperLetter,
 	number: getRandomNumber,
-	special: getRandomSpecialChar
+	special: getRandomSpecialChar,
 };
 
-// Event listeners
-generateElement.addEventListener('click', () => {
-	const length = lengthElement.value;
+// Generate event listener
+generateElement.addEventListener("click", () => {
+	//* + instead of parseint - same outcome.
+	const length = +lengthElement.value;
 
-	console.log(length);
-})
+	const hasLower = lowercaseElement.checked;
+	const hasUpper = uppercaseElement.checked;
+	const hasNumber = numbersElement.checked;
+	const hasSymbol = specialCharElement.checked;
 
-// Function to prompt user for password options
-function getPasswordOptions() {}
+	resultElement.innerText = generatePassword(
+		hasLower,
+		hasUpper,
+		hasNumber,
+		hasSymbol
+	);
+});
+
+// Function to generate password
+function generatePassword(lower, upper, number, special, length) {
+	// 1: Initialize a password variable
+	// 2: Filter out unchecked types from password
+	// 3: Iterate over length, call generator function for each type
+	// 4: Add the final password to the password variable and return it to the user
+}
 
 // * GENERATING RANDOM CHARACTERS FOR PASSWORD
 // Generate random lowercase letter from character set
