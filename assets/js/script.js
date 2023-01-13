@@ -2,112 +2,19 @@
 
 // http://www.net-comber.com/charset.html
 
-// ! A string of password characters
+// Temporary random functions constant
 
-// A string of lowercase characters to be included in password
-const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-// A string of uppercase characters to be included in password
-const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// A string of numeric characters to be included in password
-const numbers = "0123456789";
-// A string of special characters to be included in password
-const specialChars = "@%+/'!#$^?:,.()[]{}~_-";
-
-// ! An array of password characters
-
-// Array of special characters to be included in password
-var specialCharacters = [
-	"@",
-	"%",
-	"+",
-	"\\",
-	"/",
-	"'",
-	"!",
-	"?",
-	"#",
-	"$",
-	"^",
-	".",
-	",",
-	":",
-	"(",
-	")",
-	"{",
-	"}",
-	"[",
-	"]",
-	"~",
-	"-",
-	"_",
-];
-
-// Array of numeric characters to be included in password
-var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-// Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
-	"a",
-	"b",
-	"c",
-	"d",
-	"e",
-	"f",
-	"g",
-	"h",
-	"i",
-	"j",
-	"k",
-	"l",
-	"m",
-	"n",
-	"o",
-	"p",
-	"q",
-	"r",
-	"s",
-	"t",
-	"u",
-	"v",
-	"w",
-	"x",
-	"y",
-	"z",
-];
-
-// Array of uppercase characters to be included in password
-var upperCasedCharacters = [
-	"A",
-	"B",
-	"C",
-	"D",
-	"E",
-	"F",
-	"G",
-	"H",
-	"I",
-	"J",
-	"K",
-	"L",
-	"M",
-	"N",
-	"O",
-	"P",
-	"Q",
-	"R",
-	"S",
-	"T",
-	"U",
-	"V",
-	"W",
-	"X",
-	"Y",
-	"Z",
-];
+const randomFunctions = {
+	lower: getRandomLowerLetter,
+	upper: getRandomUpperLetter,
+	number: getRandomNumber,
+	special: getRandomSpecialChar
+};
 
 // Function to prompt user for password options
 function getPasswordOptions() {}
 
+// * GENERATING RANDOM CHARACTERS FOR PASSWORD
 // Generate random lowercase letter from character set
 function getRandomLowerLetter() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -125,6 +32,12 @@ function getRandomSpecialChar() {
 	const specialChars = "@%+/'!#$^?:,.()[]{}~_-";
 	return specialChars[Math.floor(Math.random() * specialChars.length)];
 }
+
+console.log(getRandomSpecialChar())
+
+
+
+
 
 // Function to generate password with user input
 function generatePassword() {}
