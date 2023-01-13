@@ -112,10 +112,22 @@ function getPasswordOptions() {}
 function getRandom(arr) {}
 
 // Generate random lowercase letter from character set
-
 function getRandomLowerLetter() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
+// Generate random uppercase letter from character set
+function getRandomUpperLetter() {
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+// Generate random number from character set
+function getRandomNumber() {
+	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+// Generate random special character from character set
+function getRandomLowerLetter() {
+	return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+}
+
 // Getting a random whole number starting from character set 97 (a) and randomising which number to return by the number of letters in the alphabet.
 console.log(Math.floor(Math.random() * 26) + 97);
 
