@@ -1,3 +1,12 @@
+// A string of lowercase characters to be included in password
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+// A string of uppercase characters to be included in password
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// A string of numeric characters to be included in password
+const numbers = "0123456789";
+// A string of special characters to be included in password
+const specialChars = "@%+\/'!#$^?:,.()[]{}~_-";
+
 // Array of special characters to be included in password
 var specialCharacters = [
 	"@",
