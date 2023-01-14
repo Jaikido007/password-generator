@@ -21,7 +21,34 @@ const randomFunctions = {
 	special: getRandomSpecialChar,
 };
 
-//* Generate event listener
+//* Generate event listeners
+// clipboard.addEventListener('click', () => {
+// 	const textarea = document.createElement('textarea');
+// 	const password = resultEl.innerText;
+	
+// 	if(!password) { return; }
+	
+// 	textarea.value = password;
+// 	document.body.appendChild(textarea);
+// 	textarea.select();
+// 	document.execCommand('copy');
+// 	textarea.remove();
+// 	alert('Password copied to clipboard');
+// });
+
+clipboardElement.addEventListener("click", async () => {
+    const password = resultElement.innerText;
+    if (!password) {
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(password);
+        alert("Password copied to clipboard");
+    } catch (err) {
+        console.error("Failed to copy text: ", err);
+    }
+});
+
 generateElement.addEventListener("click", () => {
 	// using + operator instead of parseInt() to convert string to number *** only works with strings that contain numerical values
 	const length = +lengthElement.value;
@@ -86,3 +113,5 @@ function getRandomSpecialChar() {
 	const specialChars = "@%+/'!#$^?:,.()[]{}~_-";
 	return specialChars[Math.floor(Math.random() * specialChars.length)];
 }
+
+alert("WELCOME TO PASSWORD GENERATOR:\nHow to use:\n* Please select a password length between 10 and 64 characters.\n* Select which characters you want included in your password using the checkboxes.\n*Click the generate password button to reveal your randomly generated password.\n(default setting will generate a 20-character password containing lowercase & uppercase letters, numbers and special characters)");
