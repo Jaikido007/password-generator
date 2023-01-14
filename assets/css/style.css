@@ -8,6 +8,7 @@
 	--active-button: #3593fe;
 	--white: #f8f8f8;
 	--input-text: #0075ff;
+    --output-text: #202020;
 }
 
 * {
@@ -55,6 +56,7 @@ input[type="checkbox"] {
 
 .result-container {
 	background-color: var(--result-container);
+    color: var(--output-text);
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
