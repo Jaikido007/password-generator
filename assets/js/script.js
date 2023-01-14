@@ -22,33 +22,20 @@ const randomFunctions = {
 };
 
 //* Generate event listeners
-// clipboard.addEventListener('click', () => {
-// 	const textarea = document.createElement('textarea');
-// 	const password = resultEl.innerText;
-	
-// 	if(!password) { return; }
-	
-// 	textarea.value = password;
-// 	document.body.appendChild(textarea);
-// 	textarea.select();
-// 	document.execCommand('copy');
-// 	textarea.remove();
-// 	alert('Password copied to clipboard');
-// });
-
+// Clipboard to copy password
 clipboardElement.addEventListener("click", async () => {
-    const password = resultElement.innerText;
-    if (!password) {
-        return;
-    }
-    try {
-        await navigator.clipboard.writeText(password);
-        alert("Password copied to clipboard");
-    } catch (err) {
-        console.error("Failed to copy text: ", err);
-    }
+	const password = resultElement.innerText;
+	if (!password) {
+		return;
+	}
+	try {
+		await navigator.clipboard.writeText(password);
+		alert("Password copied to clipboard");
+	} catch (err) {
+		console.error("Failed to copy text: ", err);
+	}
 });
-
+// Check options before generating password
 generateElement.addEventListener("click", () => {
 	// using + operator instead of parseInt() to convert string to number *** only works with strings that contain numerical values
 	const length = +lengthElement.value;
@@ -68,28 +55,29 @@ generateElement.addEventListener("click", () => {
 
 //* Function to generate password
 function generatePassword(lower, upper, number, special, length) {
-	//? 1: Initialize a password variable
+	// Initialize a password variable
 	let generatedPassword = "";
 	const typesCount = lower + upper + number + special;
-	// console.log("typesCount: ", typesCount);
-	//? 2: Filter out unchecked types from password
+	// Filter out unchecked types from password
 	const typesArray = [{ lower }, { upper }, { number }, { special }].filter(
 		(typesItem) => Object.values(typesItem)[0]
 	);
-	// console.log("typesArray: ", typesArray);
+	// Setting an alert if no options for password are chosen
 	if (typesCount === 0) {
+		confirm(
+			"CAN NOT GENERATE PASSWORD!\n\nPassword must include at least one option from:\nlowercase letters, uppercase letters, numbers or special characters!\n\nPlease select your option(s) using the checkboxes below!"
+		);
 		return "";
 	}
-	//? 3: Loop over length, call generator function for each type
+
+	// Loop over length, call generator function for each type
 	for (let i = 0; i < length; i += typesCount) {
 		typesArray.forEach((type) => {
 			const functionName = Object.keys(type)[0];
-			// console.log("functionName: ", functionName);
 			generatedPassword += randomFunctions[functionName]();
 		});
 	}
-	// console.log("generatedPassword is: ", generatedPassword.slice(0, length));
-	//? 4: Add the final password to the password variable and return it to the user
+	// Add the final password to the password variable and return it to the user
 	const finalPassword = generatedPassword.slice(0, length);
 
 	return finalPassword;
@@ -114,4 +102,8 @@ function getRandomSpecialChar() {
 	return specialChars[Math.floor(Math.random() * specialChars.length)];
 }
 
-alert("WELCOME TO PASSWORD GENERATOR:\nHow to use:\n* Please select a password length between 10 and 64 characters.\n* Select which characters you want included in your password using the checkboxes.\n*Click the generate password button to reveal your randomly generated password.\n(default setting will generate a 20-character password containing lowercase & uppercase letters, numbers and special characters)");
+// Alert to user
+
+alert(
+	"WELCOME TO PASSWORD GENERATOR:\nHow to use:\n* Please select a password length between 10 and 64 characters.\n* Select which characters you want included in your password using the checkboxes.\n*Click the generate password button to reveal your randomly generated password.\n(default setting will generate a 20-character password containing lowercase & uppercase letters, numbers and special characters)"
+);
