@@ -39,6 +39,10 @@ clipboardElement.addEventListener("click", async () => {
 generateElement.addEventListener("click", () => {
 	// using + operator instead of parseInt() to convert string to number *** only works with strings that contain numerical values
 	const length = +lengthElement.value;
+    if (length < 10 || length > 64) {
+        alert("CAN NOT GENERATE PASSWORD!\n\nPlease enter a password length between 10 and 64 characters!");
+        return;
+    }
 	const hasLower = lowercaseElement.checked;
 	const hasUpper = uppercaseElement.checked;
 	const hasNumber = numbersElement.checked;
