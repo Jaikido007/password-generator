@@ -46,34 +46,38 @@ function generatePassword(lower, upper, number, special, length) {
 	// 3: Loop over length, call generator function for each type
 	// 4: Add the final password to the password variable and return it to the user
 
-	// 1: Initialize a password variable
+	//? 1: Initialize a password variable
 	let generatedPassword = "";
 
 	const typesCount = lower + upper + number + special;
 
-	console.log("typesCount: ", typesCount);
+	// console.log("typesCount: ", typesCount);
 
-	// 2: Filter out unchecked types from password
+	//? 2: Filter out unchecked types from password
 	const typesArray = [{ lower }, { upper }, { number }, { special }].filter(
 		(typesItem) => Object.values(typesItem)[0]
 	);
 
-	console.log("typesArray: ", typesArray);
+	// console.log("typesArray: ", typesArray);
 
 	if (typesCount === 0) {
 		return "";
 	}
-	// 3: Loop over length, call generator function for each type
+	//? 3: Loop over length, call generator function for each type
 	for (let i = 0; i < length; i += typesCount) {
 		typesArray.forEach((type) => {
 			const functionName = Object.keys(type)[0];
-			console.log("functionName: ", functionName);
+			// console.log("functionName: ", functionName);
 
 			generatedPassword += randomFunctions[functionName]();
 		});
 	}
-	console.log("generatedPassword is: ", generatedPassword);
-	return generatedPassword;
+	// console.log("generatedPassword is: ", generatedPassword.slice(0, length));
+
+	//? 4: Add the final password to the password variable and return it to the user
+	const finalPassword = generatedPassword.slice(0, length);
+
+	return finalPassword;
 }
 
 // * GENERATING RANDOM CHARACTERS FOR PASSWORD
