@@ -46,10 +46,15 @@ function generatePassword(lower, upper, number, special, length) {
 	// 3: Iterate over length, call generator function for each type
 	// 4: Add the final password to the password variable and return it to the user
 
-	let generatedPassword = '';
+	let generatedPassword = "";
 
 	const typesCount = lower + upper + number + special;
-	console.log(typesCount)
+
+	const typesArray = [{ lower }, { upper }, { number }, { special }].filter(
+		(typesItem) => Object.values(typesItem)[0]
+	);
+
+	console.log('types array: ', typesArray)
 }
 
 // * GENERATING RANDOM CHARACTERS FOR PASSWORD
