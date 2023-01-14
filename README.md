@@ -2,7 +2,7 @@
 
 ## Description
 
-This password generator asks the user to choose a password length of 10-64 characters and then generates a random password with a combination of lower and upepr case letters, numbers and special characters.
+This password generator asks the user to choose a password length of 10-64 characters, and to choose which characters should be present in the password by selecting at least one option/or a combination of: lowercase letters, uppercase letters, numbers and special characters.  Once the user has made all their choices and clicks the button, a randomly generated password will be presented on screen.
 
 ## Installation
 
