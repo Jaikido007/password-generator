@@ -29,3 +29,11 @@ N/A
 Please refer to the LICENSE in the repo.
 
 ## Screenshots
+
+https://user-images.githubusercontent.com/81382978/212498019-259568a9-5b72-4e6e-81be-5666b34aea71.png
+
+https://user-images.githubusercontent.com/81382978/212498021-11e8e763-174a-40d9-bcd6-84fe5ea57605.png
+
+https://user-images.githubusercontent.com/81382978/212498022-70a71ca2-e121-4798-b57b-d147f6c8a9d8.png
+
+https://user-images.githubusercontent.com/81382978/212498023-80014cb1-4f98-416f-a05b-de35ba6a747d.png
