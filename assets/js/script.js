@@ -25,7 +25,6 @@ const randomFunctions = {
 generateElement.addEventListener("click", () => {
 	// using + operator instead of parseInt() to convert string to number *** only works with strings that contain numerical values
 	const length = +lengthElement.value;
-
 	const hasLower = lowercaseElement.checked;
 	const hasUpper = uppercaseElement.checked;
 	const hasNumber = numbersElement.checked;
@@ -35,7 +34,8 @@ generateElement.addEventListener("click", () => {
 		hasLower,
 		hasUpper,
 		hasNumber,
-		hasSymbol
+		hasSymbol,
+		length
 	);
 });
 
@@ -43,18 +43,37 @@ generateElement.addEventListener("click", () => {
 function generatePassword(lower, upper, number, special, length) {
 	// 1: Initialize a password variable
 	// 2: Filter out unchecked types from password
-	// 3: Iterate over length, call generator function for each type
+	// 3: Loop over length, call generator function for each type
 	// 4: Add the final password to the password variable and return it to the user
 
+	// 1: Initialize a password variable
 	let generatedPassword = "";
 
 	const typesCount = lower + upper + number + special;
 
+	console.log("typesCount: ", typesCount);
+
+	// 2: Filter out unchecked types from password
 	const typesArray = [{ lower }, { upper }, { number }, { special }].filter(
 		(typesItem) => Object.values(typesItem)[0]
 	);
 
-	console.log('types array: ', typesArray)
+	console.log("typesArray: ", typesArray);
+
+	if (typesCount === 0) {
+		return "";
+	}
+	// 3: Loop over length, call generator function for each type
+	for (let i = 0; i < length; i += typesCount) {
+		typesArray.forEach((type) => {
+			const functionName = Object.keys(type)[0];
+			console.log("functionName: ", functionName);
+
+			generatedPassword += randomFunctions[functionName]();
+		});
+	}
+	console.log("generatedPassword is: ", generatedPassword);
+	return generatedPassword;
 }
 
 // * GENERATING RANDOM CHARACTERS FOR PASSWORD
