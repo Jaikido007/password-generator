@@ -2,7 +2,7 @@
 
 // http://www.net-comber.com/charset.html
 
-// DOM Elements
+//* DOM Elements
 const resultElement = document.getElementById("result");
 const lengthElement = document.getElementById("length");
 const lowercaseElement = document.getElementById("lowercase");
@@ -12,7 +12,7 @@ const specialCharElement = document.getElementById("symbols");
 const generateElement = document.getElementById("generate");
 const clipboardElement = document.getElementById("clipboard");
 
-// Randomly generated character functions
+//* Randomly generated character functions using key:value pairs
 
 const randomFunctions = {
 	lower: getRandomLowerLetter,
@@ -21,9 +21,9 @@ const randomFunctions = {
 	special: getRandomSpecialChar,
 };
 
-// Generate event listener
+//* Generate event listener
 generateElement.addEventListener("click", () => {
-	//* + instead of parseint - same outcome.
+	// using + operator instead of parseInt() to convert string to number *** only works with strings that contain numerical values
 	const length = +lengthElement.value;
 
 	const hasLower = lowercaseElement.checked;
@@ -39,12 +39,17 @@ generateElement.addEventListener("click", () => {
 	);
 });
 
-// Function to generate password
+//* Function to generate password
 function generatePassword(lower, upper, number, special, length) {
 	// 1: Initialize a password variable
 	// 2: Filter out unchecked types from password
 	// 3: Iterate over length, call generator function for each type
 	// 4: Add the final password to the password variable and return it to the user
+
+	let generatedPassword = '';
+
+	const typesCount = lower + upper + number + special;
+	console.log(typesCount)
 }
 
 // * GENERATING RANDOM CHARACTERS FOR PASSWORD
